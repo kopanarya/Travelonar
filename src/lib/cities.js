@@ -101,7 +101,9 @@ export default [
   {name: 'Bangkok', lat: 13.75, lng: 100.516667},
   {name: 'Taipei', lat: 25.03333333, lng: 121.516667},
   {name: 'Paramaribo', lat: 5.833333333, lng: -55.166667},
-  {name: 'Sarajevo',lat: 43.86666667, lng: 18.416667}
+  {name: 'Sarajevo',lat: 43.86666667, lng: 18.416667},
+  {name: 'Novi Sad', lat: 45.25167, lng: 19.83694},
+  {name: 'Essex', lat: 19.83694,lng: -70.78283}
 
 
 
