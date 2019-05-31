@@ -4,7 +4,6 @@ from marshmallow import ValidationError
 from app import db
 from models.Story import Story, StorySchema
 
-
 router = Blueprint(__name__, 'stories')
 
 @router.route('/stories', methods=['GET'])

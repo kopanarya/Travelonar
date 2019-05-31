@@ -19,17 +19,10 @@ class NewsIndex extends React.Component{
     axios.get('/api/news',{
       params: {
         q: this.state.city
-
-
       }
-
     })
       .then(res => this.setState({ data: res.data }))
-
   }
-
-
-
   render(){
     console.log(this.state.data)
     console.log(this.state.city)
@@ -37,13 +30,14 @@ class NewsIndex extends React.Component{
     return(
       <section className="section">
         <div className="container">
-          {this.state.data.articles.map(article =>
-            <div key={article.publishedAt}>
-              <NewsCard {...article} />
-            </div>
-          )
-          }
-
+          <div className="columns is-multiline news-index">
+            {this.state.data.articles.map(article =>
+              <div key={article.publishedAt}>
+                <NewsCard {...article} />
+              </div>
+            )
+            }
+          </div>
         </div>
       </section>
 

@@ -3,7 +3,7 @@ import React from 'react'
 
 const NewsCard = ({title, description, urlToImage, publishedAt}) => {
   return(
-    <div className="columns  ">
+    <div className="columns box ">
       <div className="column is-one-quarter news-column">
         <div className="column box">
           <img src ={urlToImage} />

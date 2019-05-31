@@ -39,7 +39,7 @@ class Register extends React.Component {
             <div className="column is-half-desktop is-two-thirds-tablet">
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
-                  <label className="label">Username</label>
+                  <label className="label title is-3 auth-label">Username</label>
                   <div className="control">
                     <input
                       className="input"
@@ -51,7 +51,7 @@ class Register extends React.Component {
                   {this.state.errors.username && <div className="help is-danger">{this.state.errors.username}</div>}
                 </div>
                 <div className="field">
-                  <label className="label">Email</label>
+                  <label className="label title is-3 auth-label">Email</label>
                   <div className="control">
                     <input
                       className="input"
@@ -63,7 +63,7 @@ class Register extends React.Component {
                   {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
                 </div>
                 <div className="field">
-                  <label className="label">Password</label>
+                  <label className="label title is-3 auth-label">Password</label>
                   <div className="control">
                     <input
                       className="input"
@@ -76,7 +76,7 @@ class Register extends React.Component {
                   {this.state.errors.password && <div className="help is-danger">{this.state.errors.password}</div>}
                 </div>
                 <div className="field">
-                  <label className="label">Password Confirmation</label>
+                  <label className="label title is-3 auth-label">Password Confirmation</label>
                   <div className="control">
                     <input
                       className="input"

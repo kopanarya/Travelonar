@@ -46,7 +46,7 @@ class NewsIndex extends React.Component{
         <div className="container">
           {this.state.data.events.event.map(event =>
             <div key={event.id}>
-              <div className="columns  ">
+              <div className="columns box ">
                 <div className="column is-one-quarter news-column">
                   <div className="column box">
                     { event.image &&   <img src ={ event.image.medium.url} />}

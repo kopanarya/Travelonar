@@ -1,87 +1,128 @@
 @import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
 
+body{
+  height: 100vh;
+  background-image: url('images/hero.jpg');
+  background-position: center;
+  background-size: cover;
 
-
+}
+#background-change {
+  background-position: center;
+  background-size: cover;
+  background-image: contain;
+  transition: background-image 2s ease;
+}
 .news{
 
   background-image:url('images/news.jpg');
-  width: 100px;
-  height: 150px;
-  background-size:cover;
-  background-repeat: no-repeat;
 
-  font-family: 'Gochi Hand', cursive;
-  font-size: 30px;
-  text-align: center;
 }
+
 .story{
     background-image:url('images/story.jpg');
-    background-size:cover;
-    background-repeat: no-repeat;
-    width: 100px;
-    height: 150px;
-    font-family: 'Gochi Hand', cursive;
-    font-size: 30px;
-    text-align: center;
+
 }
 .restaurant{
     background-image:url('images/restaurant.jpg');
-    width: 100px;
-    height: 150px;
-    background-size:cover;
-    background-repeat: no-repeat;
-    font-family: 'Gochi Hand', cursive;
-    font-size: 30px;
-    text-align: center;
+
 
 }
 .events{
   background-image:url('images/events.jpg');
-  width: 100px;
-  height: 150px;
-  background-size:cover;
-  background-repeat: no-repeat;
-  font-family: 'Gochi Hand', cursive;
-  font-size: 30px;
-  text-align: center;
 
 }
 
 .nightlife{
     background-image:url('images/nightlife.jpg');
-    width: 100px;
-    height: 150px;
-    background-size:cover;
-    background-repeat: no-repeat;
-    font-family: 'Gochi Hand', cursive;
-    font-size: 30px;
-    text-align: center;
+
 }
 .weather{
   background-image:url('images/weather.jpg');
-  width: 100px;
-  height: 150px;
-  background-size:cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-family: 'Gochi Hand', cursive;
-  font-size: 30px;
-  text-align: center;
+
 }
 .landmark{
-  width: 100px;
-  height: 150px;
-  background-size:cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-family: 'Gochi Hand', cursive;
-  font-size: 30px;
-  color:white;
-  text-align: center;
+  background-image: url('images/landmark.jpg');
+
+
 
 }
 .news-column{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.search-bar{
+  margin-bottom: 290px;
+}
+.random-stories{
+ display: flex;
+ justify-content: space-between;
+ }
+.random-story{
+  background-image:url('images/story.jpg');
+  width: 100px;
+  height: 150px;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Gochi Hand', cursive;
+  font-size: 35px;
+  color:white;
+  text-align: center;
+  text-shadow: 2px 2px #FF0000;
+  opacity: 0.8;
+
+}
+.random-story:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.city-information {
+
+  width: 90px;
+  height: 150px;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Gochi Hand', cursive;
+  font-size: 40px;
+  color:white;
+  text-align: center;
+  opacity: 0.8;
+  text-shadow: 2px 2px #FF0000;
+
+}
+.city-information:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.searchbar-button{
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 3px;
+
+}
+.story-image{
+
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+.main-name{
+  font-size: 60px;
+  text-shadow: 3px 3px black;
+  color:red;
+  font-weight: bold;
+}
+.news-index{
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
+.auth-label{
+    text-shadow: 2px 2px white;
+
 }

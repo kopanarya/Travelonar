@@ -46,7 +46,7 @@ class Login extends React.Component {
             <div className="column is-half-desktop is-two-thirds-tablet">
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
-                  <label className="label">Email</label>
+                  <label className="label title is-3 auth-label ">Email</label>
                   <div className="control">
                     <input
                       className="input"
@@ -57,7 +57,7 @@ class Login extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label">Password</label>
+                  <label className="label title is-3 auth-label">Password</label>
                   <div className="control">
                     <input
                       className="input"
