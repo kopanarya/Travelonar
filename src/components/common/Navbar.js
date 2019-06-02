@@ -55,6 +55,8 @@ class Navbar extends React.Component {
               {/* Left-hand links */}
               <Link to="/stories" className="navbar-item">Stories</Link>
               <Link to="/landmarks" className="navbar-item">Landmarks</Link>
+              {Auth.isAuthenticated() && <Link to='/stories/new' className="navbar-item" >Add Story</Link>}
+              {Auth.isAuthenticated() && <Link  to="landmark/new"className="navbar-item" >Add Landmark</Link>}
             </div>
 
             <div className="navbar-end">

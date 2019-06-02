@@ -53,7 +53,7 @@ body{
   justify-content: space-between;
 }
 .search-bar{
-  margin-bottom: 290px;
+  margin-bottom: 295px;
 }
 .random-stories{
  display: flex;
@@ -72,6 +72,7 @@ body{
   text-align: center;
   text-shadow: 2px 2px #FF0000;
   opacity: 0.8;
+  border:3px solid white;
 
 }
 .random-story:hover{
@@ -81,7 +82,7 @@ body{
 .city-information {
 
   width: 90px;
-  height: 150px;
+  height: 180px;
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -91,6 +92,7 @@ body{
   text-align: center;
   opacity: 0.8;
   text-shadow: 2px 2px #FF0000;
+  border:3px solid white;
 
 }
 .city-information:hover{
@@ -116,6 +118,7 @@ body{
   text-shadow: 3px 3px black;
   color:red;
   font-weight: bold;
+
 }
 .news-index{
   display: flex;
@@ -124,5 +127,23 @@ body{
 }
 .auth-label{
     text-shadow: 2px 2px white;
+
+}
+
+.searchbar-inputs{
+  width: 40%;
+}
+.home-text{
+  margin-left: 20px;
+}
+.marker-btn{
+  background:none;
+  border:none;
+  outline: none;
+  cursor: pointer;
+}
+.marker-btn img{
+  width: 30px;
+  height: 30px;
 
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import StoryCard from  './StoryCard'
+import LandmarkCard from  './Card'
 
 
-class StoryIndex extends React.Component{
+class Index extends React.Component{
   constructor(){
     super()
     this.state = {
@@ -13,7 +13,7 @@ class StoryIndex extends React.Component{
 
   }
   componentDidMount(){
-    axios.get('/api/stories')
+    axios.get('/api/landmarks')
       .then(res => this.setState({ data: res.data }))
   }
   render(){
@@ -23,9 +23,9 @@ class StoryIndex extends React.Component{
     return(
       <section className="section">
         <div className="container">
-          {this.state.data.map(story =>
-            <div key={story.id}>
-              <StoryCard {...story} />
+          {this.state.data.map(landmark =>
+            <div key={landmark.id}>
+              <LandmarkCard {...landmark} />
             </div>
           )
           }
@@ -35,4 +35,4 @@ class StoryIndex extends React.Component{
     )
   }
 }
-export default StoryIndex
+export default Index

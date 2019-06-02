@@ -1,5 +1,5 @@
 export default [
-  { name: 'London', lat: 51.515, lng: -0.07 },
+  { name: 'London', lat: 51.507351, lng: -0.127758 },
   { name: 'Paris', lat: 48.85341, lng: 2.3488},
   {name: 'Madrid',lat: 40.4165, lng: -3.70256},
   {name: 'Berlin', lat: 52.52437, lng: 13.41053},

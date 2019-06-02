@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-
 import he from 'he'
 
 
@@ -39,7 +38,7 @@ class NewsIndex extends React.Component{
 
 
   render(){
-    if(!this.state.data) return null
+    if(!this.state.data) return <p>Loading...</p>
     console.log(this.state.data)
     return(
       <section className="section">

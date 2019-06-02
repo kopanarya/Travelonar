@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const NewsCard = ({title, description, urlToImage, publishedAt}) => {
+const Card = ({title, description, urlToImage, publishedAt}) => {
   return(
     <div className="columns box ">
       <div className="column is-one-quarter news-column">
@@ -28,4 +28,4 @@ const NewsCard = ({title, description, urlToImage, publishedAt}) => {
 
 
 }
-export default NewsCard
+export default Card

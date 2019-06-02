@@ -1,6 +1,6 @@
 import os
 from app import app
-from controllers import stories, landmarks, auth, locations, news
+from controllers import stories, landmarks, auth, locations, news, restaurants, bars
 from flask import abort
 
 app.register_blueprint(landmarks.router, url_prefix='/api')
@@ -8,6 +8,8 @@ app.register_blueprint(stories.router, url_prefix='/api')
 app.register_blueprint(auth.router, url_prefix='/api')
 app.register_blueprint(locations.router, url_prefix='/api')
 app.register_blueprint(news.router, url_prefix='/api')
+app.register_blueprint(restaurants.router, url_prefix='/api')
+app.register_blueprint(bars.router, url_prefix='/api')
 
 @app.route('/')
 @app.route('/<path:path>')

@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import NewsCard from  './NewsCard'
+import NewsCard from  './Card'
 
 
-class NewsIndex extends React.Component{
+class Index extends React.Component{
   constructor(props){
     super(props)
     console.log(props)
@@ -44,4 +44,4 @@ class NewsIndex extends React.Component{
     )
   }
 }
-export default NewsIndex
+export default Index

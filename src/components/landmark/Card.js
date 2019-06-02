@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StoryCard = ({title, description, cityname, date, image, user}) => {
+const Card = ({ticket_price, name, description, address , cityname, opening_hours, image, user}) => {
   return(
     <div className="columns box ">
       <div className="column is-one-quarter news-column">
@@ -9,7 +9,7 @@ const StoryCard = ({title, description, cityname, date, image, user}) => {
         </div>
         <div className="columns">
           <div className="column is-half">
-            {date}
+            Ticket Price:  {ticket_price} £
           </div>
           <div className="column is-half">
             {cityname}
@@ -20,13 +20,20 @@ const StoryCard = ({title, description, cityname, date, image, user}) => {
       </div>
       <div className="column is-three-quarters news-column">
         <div className="column">
-          <span className="title is-4" >  {title} </span>
+          <span className="title is-4 ">  {name}</span>
         </div>
         <div className="column">
           <span className="subtile is-4">  {description}</span>
+        </div>
+        <div className="column">
+          <span className="subtile is-4">  {address}</span>
+        </div>
+
+        <div className="column">
+          <span className="subtile is-4"> Opening hours: {opening_hours}</span>
         </div>
       </div>
     </div>
   )
 }
-export default StoryCard
+export default Card

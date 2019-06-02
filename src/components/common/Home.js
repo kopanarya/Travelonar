@@ -46,10 +46,10 @@ class Home extends React.Component{
       }}>
         <div className="container">
           <div  className="search-bar">
-            <h1 className="title is-1 has-text-centered"><span className="main-name" >Travelonar</span></h1>
+            <h1 className="title is-1 has-text-left"><span className="main-name" >Travelonar</span></h1>
             <form  onSubmit={this.handleSubmit}>
               <div className="field">
-                <div className="control box ">
+                <div className="control box searchbar-inputs ">
                   <Select
                     options={options}
                     value={selectedOption}
@@ -57,6 +57,7 @@ class Home extends React.Component{
                   />
                   <div>
                     <button className="searchbar-button">Find it</button>
+                    <strong className="home-text">Find a right city to go on holiday!!!!</strong>
                   </div>
                 </div>
               </div>
