@@ -21,9 +21,7 @@ class RestaurantIndex extends React.Component {
       data: null,
       markerClick: false,
       selectedLocation: null
-
-
-    }
+  }
     this.handleMarkerClick = this.handleMarkerClick.bind(this)
 
   }
