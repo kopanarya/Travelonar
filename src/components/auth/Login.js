@@ -40,7 +40,7 @@ class Login extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <section className="section">
+      <section className="section short-section  has-background-warning">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
@@ -50,7 +50,9 @@ class Login extends React.Component {
                   <div className="control">
                     <input
                       className="input"
+
                       name="email"
+                      type="email"
                       placeholder="eg: leela@planetexpress.nnyc"
                       onChange={this.handleChange}
                     />

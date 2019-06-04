@@ -5,12 +5,10 @@ class Register extends React.Component {
 
   constructor() {
     super()
-
     this.state = {
       data: {},
       errors: {}
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -19,21 +17,28 @@ class Register extends React.Component {
     // merge data on state with new data from the form
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     // set the data back on state
+    console.log(data,'hi there')
     this.setState({ data }) // equivalent to { data: data }
   }
-
   handleSubmit(e) {
     e.preventDefault()
 
     axios.post('/api/register', this.state.data)
       .then(() => this.props.history.push('/login')) // redirect the user to the login page...
-      .catch(err => this.setState({ errors: err.response.data.errors }))
+
+      .catch(err => {
+        console.log(err.response.data)
+        this.setState({errors: err.response.data.error})
+      }
+      )
   }
 
   render() {
-    console.log(this.state)
+
+    if(!this.state.data) return null
+
     return (
-      <section className="section">
+      <section className="section short-section  has-background-warning ">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
@@ -48,7 +53,8 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.username && <div className="help is-danger">{this.state.errors.username}</div>}
+                  {this.state.errors && this.state.errors.username && <div className="help is-danger">{this.state.errors.username[0]}</div>}
+
                 </div>
                 <div className="field">
                   <label className="label title is-3 auth-label">Email</label>
@@ -56,11 +62,13 @@ class Register extends React.Component {
                     <input
                       className="input"
                       name="email"
+                      type="email"
                       placeholder="eg: leela@planetexpress.nnyc"
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
+                  {this.state.errors && this.state.errors.email && <div className="help is-danger">
+                    {this.state.errors.email[0]}</div>}
                 </div>
                 <div className="field">
                   <label className="label title is-3 auth-label">Password</label>
@@ -73,21 +81,25 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.password && <div className="help is-danger">{this.state.errors.password}</div>}
+
                 </div>
+                {this.state.errors && this.state.errors.password && <div className="help is-danger">
+                  {this.state.errors.password[0]}</div>}
                 <div className="field">
                   <label className="label title is-3 auth-label">Password Confirmation</label>
                   <div className="control">
                     <input
                       className="input"
-                      name="passwordConfirmation"
+                      name="password_confirmation"
                       type="password"
                       placeholder="eg: ••••••••"
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.passwordConfirmation && <div className="help is-danger">{this.state.errors.passwordConfirmation}</div>}
+
                 </div>
+                {this.state.errors && this.state.errors.password_confirmation && <div className="help is-danger">
+                  {this.state.errors.password_confirmation[0]}</div>}
                 <button className="button is-primary">Submit</button>
               </form>
             </div>

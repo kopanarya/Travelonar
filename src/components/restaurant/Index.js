@@ -2,9 +2,12 @@ import React from 'react'
 import axios from 'axios'
 import ReactMapboxGl, { Marker, Popup } from 'react-mapbox-gl'
 import { Link } from 'react-router-dom'
+import cities from '../../lib/cities'
+import  Loader from '../common/Loader'
 
 
 const Map = ReactMapboxGl({
+
   accessToken: process.env.MAP_BOX
 })
 
@@ -14,7 +17,7 @@ class RestaurantIndex extends React.Component {
     super(props)
 
     this.state ={
-      currentCity: props.location.state.selectedCity,
+      currentCity: cities.find(city => city.name === this.props.location.pathname.slice(13)),
       data: null,
       markerClick: false,
       selectedLocation: null
@@ -43,7 +46,7 @@ class RestaurantIndex extends React.Component {
 
 
   render() {
-    if(!this.state.data) return <p>Loading...</p>
+    if(!this.state.data) return <Loader />
     console.log(this.state, 'STATE')
 
 
@@ -85,7 +88,7 @@ class RestaurantIndex extends React.Component {
                 </div>
                 <div>
                   {this.state.selectedLocation.opening_hours.open_now && <span>Open</span>}
-                  {!this.state.selectedLocation.opening_hours.open_now&& <span>Closed</span>}
+                  {!this.state.selectedLocation.opening_hours.open_now && <span>Closed</span>}
                 </div>
                 <div>
                   Rating: {this.state.selectedLocation.rating}

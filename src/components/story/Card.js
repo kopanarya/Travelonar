@@ -8,15 +8,14 @@ const Card = ({title, description, cityname, date, image, user}) => {
           <img src ={image} />
         </div>
         <div className="columns">
-          <div className="column is-half">
-            {date}
-          </div>
-          <div className="column is-half">
+          <div className="column is-one-half-mobile is-one-half">
             {cityname}
           </div>
+          <div className="column is-one-half-mobile is-one-half">
+            {date}
+          </div>
+
         </div>
-
-
       </div>
       <div className="column is-three-quarters news-column">
         <div className="column">

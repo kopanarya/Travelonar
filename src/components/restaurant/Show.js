@@ -27,69 +27,69 @@ class Show extends React.Component{
     console.log(this.state.data.result.opening_hours.weekday_text)
 
     return(
-      <section className="section">
+      <section className="section background-color">
         <div className="container">
-          <div className="columns is-multiline  box">
+          <div className="columns is-multiline  box full-width ">
             <div className="column is-one-half">
-              <div className="column is-full ">
-                <h2 className="title is-2">
+              <div className="column is-full">
+                <h2 className="title is-3">
                   {this.state.data.result.name}
                 </h2>
                 <hr/>
               </div>
               <div className="column is-full">
-                <p className="subtitle is-4"> <strong>Phone Number: </strong>
+                <p className="subtitle is-6"> <strong>Phone Number: </strong>
                   {this.state.data.result.international_phone_number} </p>
                 <hr/>
               </div>
               <div className="column is-full">
-                <p className="subtitle is-4"> <strong>Website: </strong>
+                <p className="subtitle is-6"> <strong>Website: </strong>
                   <a href={this.state.data.result.website}>{this.state.data.result.website}</a> </p>
                 <hr/>
               </div>
 
               <div className="column is-full">
-                {this.state.data.result.opening_hours.open_now && <span className="subtitle is-4 has-text-primary">Open</span>}
-                {!this.state.data.result.opening_hours.open_now&& <span className="subtitle is-4 has-text-danger">Closed</span>}
+                {this.state.data.result.opening_hours.open_now && <span className="subtitle is-6 has-text-primary">Open</span>}
+                {!this.state.data.result.opening_hours.open_now&& <span className="subtitle is-6 has-text-danger">Closed</span>}
                 <hr/>
               </div>
               <div className="column is-full">
-                <p className="subtitle is-4"> <strong>Rating: </strong>
+                <p className="subtitle is-6"> <strong>Rating: </strong>
                   {this.state.data.result.rating} </p>
                 <hr/>
               </div>
               <div className="column is-full">
-                <p className="subtitle is-4"><strong>Address: </strong>
+                <p className="subtitle is-6"><strong>Address: </strong>
                   {this.state.data.result.vicinity}</p>
               </div>
             </div>
 
             <div className="column is-one-half box">
-              <h2  className="subtitle is-3">Openin Hours</h2>
+              <h2  className="subtitle is-5"><strong>Openin Hours</strong></h2>
               <ul className="menu-list">
                 {this.state.data.result.opening_hours.weekday_text.map(day =>
-                  <li key={day} className="subtitle is-4">{day}</li>
+                  <li key={day} className="subtitle is-6">{day}</li>
                 )}
               </ul>
 
             </div>
           </div>
-          <div className="columns is-multiline box">
+          <div className="columns is-multiline box full-width">
             {this.state.data.result.reviews.map( review =>
-              <div key={review.time} className="columns is-multiline box">
-                <div  className="column is-one-quarter box">
-                  <div className="column is-full">
+              <div key={review.time} className="columns is-multiline box full-width-child">
+                <div  className="column is-one-quarter ">
+                  <div className="column is-full user-container">
                     <img src={review.profile_photo_url} />
                   </div>
                   <div className="column is-one-half">
-                    {review.author_name}
+                    <p className="subtitle is-6">  {review.author_name} </p>
                   </div>
                   <div className="column is-one-half">
-                    Rating: {review.rating}
+                    <p className="subtitle is-6"> <strong> Rating: </strong> {review.rating} </p>
                   </div>
                 </div>
-                <div className="column is-three-quarters">
-                  {review.text}
+                <div className="column is-three-quarters full-width">
+                  <p className="subtitle is-6"> {review.text} </p>
                 </div>
 
               </div>

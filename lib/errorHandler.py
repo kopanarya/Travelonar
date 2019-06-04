@@ -12,3 +12,12 @@ def errorHandler(err, req, res, next):
 
         res.status(status).json({message, errors})
         next(err)
+    # if err.type == 'ValueError':
+    #     status = 422
+    #     errors = {}
+    #     message = 'Validation failed'
+    #     for field in err.errors:
+    #         errors[field] = err.errors[field].message
+    #
+    #     res.status(status).json({message, errors})
+    #     next(err)

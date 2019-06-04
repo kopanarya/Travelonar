@@ -21,7 +21,7 @@ class StoryIndex extends React.Component{
 
     if(!this.state.data) return null
     return(
-      <section className="section">
+      <section className="section has-background-warning">
         <div className="container">
           {this.state.data.map(story =>
             <div key={story.id}>

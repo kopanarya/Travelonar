@@ -3,6 +3,13 @@ import 'react-datepicker/dist/react-datepicker.css'
 import React from 'react'
 import Auth from '../../lib/Auth'
 import axios from 'axios'
+import Select from 'react-select'
+import cities from '../../lib/cities'
+
+const options = cities.map(city => {
+  return {label: city.name, value: 'cityname' , lat: city.lat, lng: city.lng}
+})
+
 
 class StoryNew extends React.Component{
 
@@ -10,19 +17,19 @@ class StoryNew extends React.Component{
     super()
     this.state ={
       data: {
-        cityname: '',
-        title: '',
-        description: '',
-        image: '',
-        date: ''
+
       },
       errors: {}
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChangeDate = this.handleChangeDate.bind(this)
   }
-
+  handleSelect(e){
+    const data = { ...this.state.data, [e.value]: e.label }
+    this.setState({ data })
+  }
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     console.log(data)
@@ -43,7 +50,7 @@ class StoryNew extends React.Component{
     axios.post('/api/stories', this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
-      .then(this.props.history.push('/stories'))
+      .then(() => this.props.history.push('/stories'))
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
 
@@ -51,27 +58,23 @@ class StoryNew extends React.Component{
 
   render(){
     if(!this.state.data) return null
+    console.log(this.state.data.errors)
     return(
-      <section className="section">
-        <div className="container">
+      <section className="section short-section  has-background-warning">
+        <div className="container ">
           <form onSubmit={this.handleSubmit}>
-            <div className="columns is-centered">
-              <div className="column is-half-desktop is-half-tablet">
+            <div className="columns  is-centered">
+              <div className="column box is-half-desktop is-half-tablet">
                 <div className="field">
                   <label className="label">City Name</label>
                   <div className="control">
-                    <input
-                      className="input"
-                      name="cityname"
-                      placeholder="The name of city!"
-                      onChange={this.handleChange}
-                      value={this.state.data.cityname || ''}
+                    <Select
+                      options={options}
+                      onChange={this.handleSelect}
                     />
                   </div>
-                  {this.state.errors.name && <div className="help is-danger">{this.state.errors.name}</div>}
+                  {this.state.errors.cityname && <div className="help is-danger">Please enter a city name</div>}
                 </div>
-
-
                 <div className="field">
                   <label className="label">Title</label>
                   <div className="control">
@@ -83,10 +86,8 @@ class StoryNew extends React.Component{
                       value={this.state.data.title || ''}
                     />
                   </div>
-                  {this.state.errors.name && <div className="help is-danger">{this.state.errors.name}</div>}
+                  {this.state.errors.title && <div className="help is-danger">Please enter a title</div>}
                 </div>
-
-
                 <div className="field">
                   <label className="label">Description</label>
                   <div className="control">
@@ -99,10 +100,8 @@ class StoryNew extends React.Component{
                     >
                     </textarea>
                   </div>
-                  {this.state.errors.name && <div className="help is-danger">{this.state.errors.name}</div>}
+                  {this.state.errors.description && <div className="help is-danger">Please enter description</div>}
                 </div>
-
-
                 <div className="field">
                   <label className="label">Image Url</label>
                   <div className="control">
@@ -114,10 +113,8 @@ class StoryNew extends React.Component{
                       value={this.state.data.image || ''}
                     />
                   </div>
-                  {this.state.errors.name && <div className="help is-danger">{this.state.errors.name}</div>}
+                  {this.state.errors.image && <div className="help is-danger">Please enter image url</div>}
                 </div>
-
-
                 <div className="field">
                   <label className="label">Date</label>
                   {this.state.data.date &&  <h1>{this.state.data.date || ''}</h1>}
@@ -125,15 +122,10 @@ class StoryNew extends React.Component{
                     onChange={this.handleChangeDate}
                     value={this.state.data.date || ''}
                   />
-                
-                  {this.state.errors.name && <div className="help is-danger">{this.state.errors.name}</div>}
+                  {this.state.errors.date && <div className="help is-danger">Please enter date</div>}
                 </div>
-
-                <button>Submit</button>
+                <button className="button is-primary ">Save</button>
               </div>
-
-
-
             </div>
           </form>
         </div>

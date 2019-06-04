@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card = ({ticket_price, name, description, address , cityname, opening_hours, image, user}) => {
+const Card = ({ticket_price, name, description, address , cityname, start_time,finish_time, image}) => {
   return(
     <div className="columns box ">
       <div className="column is-one-quarter news-column">
@@ -30,7 +30,7 @@ const Card = ({ticket_price, name, description, address , cityname, opening_hour
         </div>
 
         <div className="column">
-          <span className="subtile is-4"> Opening hours: {opening_hours}</span>
+          <span className="subtile is-4"> Opening hours: {start_time} - {finish_time}</span>
         </div>
       </div>
     </div>

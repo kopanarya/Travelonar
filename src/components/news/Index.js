@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import NewsCard from  './Card'
+import  Loader from '../common/Loader'
 
 
 class Index extends React.Component{
@@ -26,9 +27,9 @@ class Index extends React.Component{
   render(){
     console.log(this.state.data)
     console.log(this.state.city)
-    if(!this.state.data) return null
+    if(!this.state.data) return  <Loader />
     return(
-      <section className="section">
+      <section className="section has-background-warning">
         <div className="container">
           <div className="columns is-multiline news-index">
             {this.state.data.articles.map(article =>

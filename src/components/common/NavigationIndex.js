@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import qs from 'query-string'
 import cities from '../../lib/cities'
 
+
 class NavigationIndex extends React.Component{
   constructor(props){
     super(props)
@@ -21,37 +22,46 @@ class NavigationIndex extends React.Component{
   render(){
 
     return(
-      <section className="section">
+      <section className="section short-section background-color">
         <div className="container">
+          <h1 className="ttitle is-1 main-name has-text-left ">{this.currentCity.name}
+            <hr className="city-name" />
+          </h1>
           <div className="columns is-multiline random-stories ">
-            <Link className="column is-one-third city-information  has-text-light news box " to={`/news/${this.currentCity.name}`}>
+            <Link className="column is-full-mobile is-one-third city-information  has-text-light news box " to={`/news/${this.currentCity.name}`}>
               <div>
-                {this.currentCity.name}&apos;s News
+               News
+
               </div>
             </Link>
 
-            <Link className="column is-one-third city-information has-text-light events box" to={`/events/${this.currentCity.name}`}>
+            <Link className="column is-full-mobile is-one-third city-information has-text-light events box" to={`/events/${this.currentCity.name}`}>
               <div >
-                {this.currentCity.name}&apos;s Events
+                Events
               </div>
             </Link>
-            <Link className="column is-one-third city-information  has-text-light landmark box" >
-              <div >{this.currentCity.name}&apos;s Landmark</div>
+            <Link className="column is-full-mobile is-one-third city-information  has-text-light landmark box" to={{
+              pathname: `/landmarks/${this.currentCity.name}`
+            }} >
+              <div >Landmarks</div>
             </Link>
-            <Link className="column is-one-third city-information  has-text-light restaurant box" to={{
-              pathname: `/restaurants/${this.currentCity.name}`,
-              state: { selectedCity: this.currentCity }
+            <Link className="column is-full-mobile is-one-third city-information  has-text-light restaurant box" to={{
+              pathname: `/restaurants/${this.currentCity.name}`
+
             }}>
-              <div >{this.currentCity.name}&apos;s Restaurant</div>
+              <div >Restaurants</div>
             </Link>
-            <div className="column is-one-third city-information  has-text-light story box">{this.currentCity.name}&apos;s Stories</div>
-            <Link className="column is-one-third city-information  has-text-light nightlife box" to={{
-              pathname: `/bars/${this.currentCity.name}`,
-              state: { selectedCity: this.currentCity }
+            <Link className="column is-full-mobile is-one-third city-information  has-text-light story box" to={{
+              pathname: `/stories/${this.currentCity.name}`
             }}>
-              <div >{this.currentCity.name}&apos;s NightLife</div>
+              <div >Stories</div>
             </Link>
-            <div className="column is-one-third city-information  has-text-light weather box">{this.currentCity.name}&apos;s Weather</div>
+            <Link className="column is-full-mobile is-one-third city-information  has-text-light nightlife box" to={{
+              pathname: `/bars/${this.currentCity.name}`
+            }}>
+              <div > NightLife</div>
+            </Link>
+
           </div>
         </div>
       </section>

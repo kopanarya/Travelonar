@@ -1,21 +1,18 @@
 import React from 'react'
 import axios from 'axios'
 import he from 'he'
-
-
+import  Loader from '../common/Loader'
 
 class NewsIndex extends React.Component{
   constructor(props){
     super(props)
     console.log(props)
-    const currentCity = this.props.location.pathname
+
 
     this.state = {
-      city: currentCity.slice(8),
+      city: this.props.location.pathname.slice(8),
       data: null
     }
-
-
   }
   decodeHTML(str) {
     return he.decode(str)
@@ -38,10 +35,10 @@ class NewsIndex extends React.Component{
 
 
   render(){
-    if(!this.state.data) return <p>Loading...</p>
+    if(!this.state.data) return <Loader />
     console.log(this.state.data)
     return(
-      <section className="section">
+      <section className="section has-background-warning">
         <div className="container">
           {this.state.data.events.event.map(event =>
             <div key={event.id}>

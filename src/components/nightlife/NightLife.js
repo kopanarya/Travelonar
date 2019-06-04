@@ -2,9 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import ReactMapboxGl, { Marker,Popup } from 'react-mapbox-gl'
 import { Link } from 'react-router-dom'
+import cities from '../../lib/cities'
+import  Loader from '../common/Loader'
 
 const Map = ReactMapboxGl({
-  accessToken: 'pk.eyJ1IjoiYWxpa3VydHVsdXNoIiwiYSI6ImNqd2J4NWM1bDBrYmEzeW1nOHMydnNxdW8ifQ.fjpHZVn_UWm-BEJ8BrxA3w'
+  accessToken: process.env.MAP_BOX
 })
 
 class NightLife extends React.Component {
@@ -13,7 +15,7 @@ class NightLife extends React.Component {
     super(props)
 
     this.state ={
-      currentCity: props.location.state.selectedCity,
+      currentCity: cities.find(city => city.name === this.props.location.pathname.slice(6)),
       data: null,
       selectedLocation: null
     }
@@ -24,6 +26,7 @@ class NightLife extends React.Component {
     this.setState({selectedLocation: e})
   }
   componentDidMount(){
+
     axios.get('/api/bars',{
       params: {
         location: String(this.state.currentCity.lat)+','+String(this.state.currentCity.lng)
@@ -32,7 +35,7 @@ class NightLife extends React.Component {
       .then(res => this.setState({data: res.data}))
   }
   render() {
-    if(!this.state.data) return <p>Loading...</p>
+    if(!this.state.data) return  <Loader />
     console.log(this.state, 'STATE')
 
     return(

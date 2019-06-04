@@ -6,9 +6,7 @@ class Navbar extends React.Component {
 
   constructor(props) {
     super(props)
-
     this.state = { active: false }
-
     this.logout = this.logout.bind(this)
     this.toggleActive = this.toggleActive.bind(this)
   }
@@ -17,7 +15,6 @@ class Navbar extends React.Component {
     Auth.removeToken()
     this.props.history.push('/')
   }
-
   toggleActive() {
     this.setState({ active: !this.state.active })
   }
@@ -27,7 +24,6 @@ class Navbar extends React.Component {
       this.setState({ active: false })
     }
   }
-
   render() {
     return (
       <nav className="navbar is-dark">
@@ -50,13 +46,12 @@ class Navbar extends React.Component {
 
           <div className={`navbar-menu${this.state.active ? ' is-active' : ''}`}>
             {/* Everything else */}
-
             <div className="navbar-start">
               {/* Left-hand links */}
-              <Link to="/stories" className="navbar-item">Stories</Link>
-              <Link to="/landmarks" className="navbar-item">Landmarks</Link>
-              {Auth.isAuthenticated() && <Link to='/stories/new' className="navbar-item" >Add Story</Link>}
-              {Auth.isAuthenticated() && <Link  to="landmark/new"className="navbar-item" >Add Landmark</Link>}
+              {this.props.location.pathname!=='/stories' && <Link to="/stories" className={`navbar-item ${this.state.active ? ' is-active' : ''} `}>Stories</Link>}
+              {this.props.location.pathname!=='/landmarks' && <Link to="/landmarks" className={`navbar-item ${this.state.active ? ' is-active' : ''} `}>Landmarks</Link>}
+              {Auth.isAuthenticated() && this.props.location.pathname!=='/stories/new' && <Link to="/stories/new" className={`navbar-item ${this.state.active ? ' is-active' : ''} `}>Add Story</Link>}
+              {Auth.isAuthenticated() &&   this.props.location.pathname!=='/landmarks/new'  && <Link to="/landmarks/new" className={`navbar-item ${this.state.active ? ' is-active' : ''} `}>Add Landmark</Link>}
             </div>
 
             <div className="navbar-end">
