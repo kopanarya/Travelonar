@@ -6,9 +6,11 @@
   "author": "Ali Kurtulush <alikurtulus-92@hotmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "webpack -p",
+    "postinstall": "[ \"$NODE_ENV\" = \"production\" ] && yarn build || exit 0",
     "run:client": "webpack-dev-server  --mode=development",
     "run:server": "pipenv run flask run --port 4000",
-    "build": "webpack -p"
+
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
